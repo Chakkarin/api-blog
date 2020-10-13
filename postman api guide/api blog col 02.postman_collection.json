@@ -1,0 +1,204 @@
+{
+	"variables": [],
+	"info": {
+		"name": "api blog",
+		"_postman_id": "ae4ba3ef-779e-e31c-f3f5-bdc73ec49b93",
+		"description": "mini project crud nest js type orm",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all categories",
+			"request": {
+				"url": "http://localhost:3000/categories",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"first_name\": \"eiei\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "create categories",
+			"request": {
+				"url": "http://localhost:3000/categories",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cate_description\" : \"Category Type 01\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "update categories",
+			"request": {
+				"url": "http://localhost:3000/categories/",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\" : \"1b6645c0-da22-4503-9f65-0d8857c429bd\",\n\t\"cate_description\" : \"แก้ไขแล้ว\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "delete categories",
+			"request": {
+				"url": "http://localhost:3000/categories/1b6645c0-da22-4503-9f65-0d8857c429bd",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "create posts",
+			"request": {
+				"url": "http://localhost:3000/posts/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"post_description\" : \"test\",\n\t\"category\": \"1b6645c0-da22-4503-9f65-0d8857c429bd\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get posts all",
+			"request": {
+				"url": "http://localhost:3000/posts/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "update posts",
+			"request": {
+				"url": "http://localhost:3000/posts/",
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"7bb51109-2844-4bd7-9b76-26d23401ed0d\",\n\t\"post_description\" : \"test133\",\n\t\"category\": \"1b6645c0-da22-4503-9f65-0d8857c429bd\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "delete posts",
+			"request": {
+				"url": "http://localhost:3000/posts/7bb51109-2844-4bd7-9b76-26d23401ed0d",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get all comments",
+			"request": {
+				"url": "http://localhost:3000/comments/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "update comments",
+			"request": {
+				"url": "http://localhost:3000/comments/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": \"1\",\n        \"comment_description\": \"commentssssssss\",\n        \"create\": \"2020-10-13T16:19:34.000Z\",\n        \"post\": \"7bb51109-2844-4bd7-9b76-26d23401ed0d\"\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "delete comment",
+			"request": {
+				"url": "http://localhost:3000/comments/7a114dfb-b11a-4221-8303-ffa658359455",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
