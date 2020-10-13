@@ -14,7 +14,7 @@ export class PostsService {
 
     getAll() {
         return this.postsRepository.find({
-            relations: ['category']
+            relations: ['category', 'comments']
         });
     }
 
@@ -34,7 +34,18 @@ export class PostsService {
         return this.postsRepository.save(posts);
     }
 
-    deletePosts(id: string) {
+    async deletePosts(id: string) {
+        const chkData = await this.postsRepository.findOne({
+            relations: ['comments'],
+            where: {
+                id: id,
+            }
+        })
+
+        if (chkData.comments.length !== 0) {
+            throw new BadRequestException(`ไม่สามารถลบได้เนื่องจากมี FK กับ comment แล้ว`);
+        }
+
         return this.postsRepository.delete(id);
     }
 
