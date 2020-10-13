@@ -7,8 +7,7 @@ import { Repository } from "typeorm";
 @Injectable()
 export class CategoriesService {
     constructor(
-        @InjectRepository(CategoriesEntity)
-        private readonly categoriesRepository: Repository<CategoriesEntity>) { }
+        @InjectRepository(CategoriesEntity) private readonly categoriesRepository: Repository<CategoriesEntity>) { }
 
 
     getAll() {
@@ -29,7 +28,18 @@ export class CategoriesService {
         return await this.categoriesRepository.save(categories);
     }
 
-    deleteCategory(id: string) {
+    async deleteCategory(id: string) {
+        const chkData = await this.categoriesRepository.findOne({
+            relations: ['post'],
+            where: {
+                id: id,
+            }
+        })
+
+        if (chkData.post.length !== 0) {
+            throw new BadRequestException(`ไม่สามารถลบได้เนื่องจากมี FK กับโพสแล้ว`);
+        }
+
         return this.categoriesRepository.delete(id);
     }
 

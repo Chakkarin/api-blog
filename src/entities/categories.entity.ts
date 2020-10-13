@@ -13,6 +13,6 @@ export class CategoriesEntity {
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     created_at: Date;
 
-    @OneToMany(type => PostsEntity, post => post.categories)
+    @OneToMany(type => PostsEntity, post => post.category)
     post: PostsEntity[];
 }

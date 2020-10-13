@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CategoriesModule } from './modules/categories/categories.module';
+import { PostsModule } from './modules/posts/posts.module';
 
 @Module({
   imports: [
@@ -16,7 +17,8 @@ import { CategoriesModule } from './modules/categories/categories.module';
       entities: ["dist/**/*.entity{.ts,.js}"],
       synchronize: true
     }),
-    CategoriesModule
+    CategoriesModule,
+    PostsModule
   ],
   controllers: [
     AppController

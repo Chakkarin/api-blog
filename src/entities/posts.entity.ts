@@ -12,11 +12,11 @@ export class PostsEntity {
     @Column("text")
     post_description: string;
 
-    @Column()
+    @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     created_at: Date;
 
     @ManyToOne(type => CategoriesEntity, category => category.post)
-    categories: CategoriesEntity;
+    category: CategoriesEntity;
 
     @OneToMany(type => CommentsEntity, comment => comment.post)
     comments: CommentsEntity[];
